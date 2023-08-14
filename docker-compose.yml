@@ -1,9 +1,25 @@
 version: '3.6'
 services:
-  java:
+  tomcat-java:
     build: ./docker/java
     ports:
       - 8080:8080
     tty: true
     volumes:
-      - ./server/src:/usr/src:cached
+      - ./server/src:/usr/local/tomcat/webapps/hoge:cached
+    depends_on:
+      - mariadb
+
+  # MariaDB
+  mariadb:
+    build: ./docker/mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/mariadb/initdb.d:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: sample_root_passward
+      MYSQL_DATABASE: sample_db
+      MYSQL_USER: sample_user
+      MYSQL_PASSWORD: sample_pass
