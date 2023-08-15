@@ -1,6 +1,5 @@
+FROM mariadb:10.6
 
-FROM mariadb:latest
+RUN apt-get update
 
-COPY ./initdb.d/init.sql /docker-entrypoint-initdb.d/
-
-VOLUME [ "/var/lib/mysql" ]
+COPY ./my.cnf /etc/mysql/my.cnf
