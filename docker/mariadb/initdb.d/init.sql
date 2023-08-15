@@ -5,4 +5,4 @@ CREATE TABLE sample_table (
     name TEXT NOT NULL
 ) charset=utf8;
  
-INSERT INTO sample_table (name) VALUES ("太郎"),("花子"),("令和");
+INSERT INTO sample_table (name) VALUES ("tarou"),("hanako"),("reiwa"),("徳川");
