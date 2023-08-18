@@ -6,7 +6,7 @@ services:
       - 8080:8080
     tty: true
     volumes:
-      - ../workspace:/usr/local/tomcat/webapps:cached
+      - ./java/src:/usr/local/tomcat/webapps:cached
     depends_on:
       - mariadb
 
