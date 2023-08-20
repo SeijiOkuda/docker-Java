@@ -1,14 +1,16 @@
 version: '3.8'
 services:
   tomcat-java:
-    build: ./java
-    ports:
+    build: #構築時に適用するオプション
+      context: ./java
+      dockerfile: Dockerfile
+    working_dir: /srv #作業ディレクトリの指定
+    ports: #ホスト側:コンテナ側 でポートを指定
       - 8080:8080
-    tty: true
-    volumes:
-      - ../workspace:/usr/local/tomcat/webapps:cached
-    depends_on:
-      - mariadb
+    tty: true #コンテナが正常終了せず、起動したままになる
+    volumes: #ローカルファイルをDockerコンテナ内にマウントし、データを永続化する
+      #[ソース:]ターゲット[:モード]
+      - ./java:/srv:cached
 
   # MariaDB
   mariadb:
