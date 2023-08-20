@@ -6,7 +6,7 @@
     // docker-compose.yml内のサービス名を指定。全リポジトリ共通にしてます。
     "service": "tomcat-java",
     // コンテナのどこにワークスペースを配置するかの指定。全リポジトリ共通にしてます。
-    "workspaceFolder": "/usr/local/tomcat/webapps",
+    "workspaceFolder": "/srv",
     // ゲストOSでの実行ユーザ。全リポジトリ共通にしてます。
     "remoteUser": "root",
     // ゲストOSの設定を変更する場合に利用する設定
